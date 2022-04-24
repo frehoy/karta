@@ -12,3 +12,6 @@ build: data
 
 server:
 	docker compose up
+
+db:
+	docker compose exec --user postgres db osm2pgsql --slim --drop --number-processes 4 /data/sweden-latest.osm.pbf
