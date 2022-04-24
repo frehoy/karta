@@ -1,4 +1,11 @@
 services:
+  db:
+    build: ./osm-postgis
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - db-pg_data:/var/lib/postgresql/data
+      - ./data/:/data/
   tiles:
     image: overv/openstreetmap-tile-server
     volumes:
@@ -13,3 +20,4 @@ services:
 volumes:
   tiles-db:
   tiles-tiles:
+  db-pg_data:
