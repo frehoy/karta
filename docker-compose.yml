@@ -1,0 +1,15 @@
+services:
+  tiles:
+    image: overv/openstreetmap-tile-server
+    volumes:
+      - ./data/sweden-latest.osm.pbf:/data/region.osm.pbf
+      - ./data/sweden.poly:/data/region.poly
+      - tiles-db:/data/database/
+      - tiles-tiles:/data/tiles/
+    ports:
+      - "8080:80"
+    command: "run"
+
+volumes:
+  tiles-db:
+  tiles-tiles:
