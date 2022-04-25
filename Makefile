@@ -21,3 +21,4 @@ sh:
 
 db:
 	docker compose exec --user postgres db osm2pgsql --slim --drop --number-processes 4 /data/sweden-latest.osm.pbf
+	docker compose exec --user postgres db psql --file=/var/lib/postgresql/carto-indexes.sql
