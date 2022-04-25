@@ -10,6 +10,7 @@ RUN apt-get update \
      && apt-get install -y --no-install-recommends \
      postgresql-$PG_MAJOR-postgis-$POSTGIS_MAJOR=$POSTGIS_VERSION \
      postgresql-$PG_MAJOR-postgis-$POSTGIS_MAJOR-scripts \
+     gdal-bin \
      osm2pgsql \
      && rm -rf /var/lib/apt/lists/*
 
