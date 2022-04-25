@@ -4,20 +4,12 @@ services:
     environment:
       - POSTGRES_HOST_AUTH_METHOD=trust
     volumes:
-      - db-pg_data:/var/lib/postgresql/data
+      - pg_data:/var/lib/postgresql/data
       - ./data/:/data/
   tiles:
-    image: overv/openstreetmap-tile-server
-    volumes:
-      - ./data/sweden-latest.osm.pbf:/data/region.osm.pbf
-      - ./data/sweden.poly:/data/region.poly
-      - tiles-db:/data/database/
-      - tiles-tiles:/data/tiles/
+    build: ./tiles
     ports:
       - "8080:80"
-    command: "run"
 
 volumes:
-  tiles-db:
-  tiles-tiles:
-  db-pg_data:
+  pg_data:
