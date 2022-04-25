@@ -11,4 +11,4 @@ build: data
 	docker compose run tiles import
 
 server:
-	docker compose up
+	docker compose up -d
