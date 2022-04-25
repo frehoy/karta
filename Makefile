@@ -13,5 +13,11 @@ build: data
 server:
 	docker compose up
 
+re:
+	docker compose down -v && docker compose build && docker compose up -d
+
+sh:
+	docker compose build tiles && docker compose run --rm tiles /bin/bash
+
 db:
 	docker compose exec --user postgres db osm2pgsql --slim --drop --number-processes 4 /data/sweden-latest.osm.pbf
