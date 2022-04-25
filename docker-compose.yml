@@ -6,6 +6,7 @@ services:
     volumes:
       - pg_data:/var/lib/postgresql/data
       - ./data/:/data/
+      - ./tmp/:/data/tmp/
   tiles:
     build: ./tiles
     ports:
