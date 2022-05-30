@@ -1,0 +1,17 @@
+FROM openjdk:19 AS builder
+
+# Fetch the graphhopper jar
+WORKDIR /routy
+ADD https://github.com/graphhopper/graphhopper/releases/download/5.0/graphhopper-web-5.0.jar ./jars/graphhopper-web-5.0.jar
+
+# Add the data
+ADD data/sweden.gtfs.zip data/sweden.gtfs.zip
+ADD data/sweden-latest.osm.pbf data/sweden-latest.osm.pbf
+
+ADD config.routing.yml .
+
+# Build the graph
+RUN java -Xmx15g -Xms15g -jar jars/graphhopper-web-5.0.jar import config.routing.yml
+
+# Run the server
+CMD ["java", "-Xmx15g", "-Xms15g", "-jar", "jars/graphhopper-web-5.0.jar", "server", "config.routing.yml"]

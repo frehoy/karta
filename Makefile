@@ -1,4 +1,7 @@
-data: data/sweden-latest.osm.pbf data/sweden.poly
+data: data/sweden-latest.osm.pbf data/sweden.poly data/sweden.gtfs.zip
+
+data/sweden.gtfs.zip:
+	scripts/fetch_gtfs.sh
 
 data/sweden-latest.osm.pbf:
 	curl --output data/sweden-latest.osm.pbf https://download.geofabrik.de/europe/sweden-latest.osm.pbf
