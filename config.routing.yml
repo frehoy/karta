@@ -1,4 +1,5 @@
 graphhopper:
+  import.osm.ignored_highways:
   datareader.file: data/sweden-latest.osm.pbf
   gtfs.file: data/sweden.gtfs.zip
   graph.location: graphs/sweden
