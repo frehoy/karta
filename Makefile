@@ -11,7 +11,7 @@ data/sweden.poly:
 
 
 build: data
-	docker compose run tiles import
+	docker compose run --rm tiles import
 
 server:
 	docker compose up -d
