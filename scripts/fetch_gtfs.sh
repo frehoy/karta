@@ -18,7 +18,7 @@ url="https://api.resrobot.se/gtfs/sweden.zip?key=${KARTA_GTFS_KEY}"
 curl -o data/sweden.gtfs.zip "$url"
 
 # Check we don't have an acces denied error in the response
-if grep -q "access denied" sweden.gtfs.zip; then
+if grep -q "access denied" data/sweden.gtfs.zip; then
     echo "Looks like downloading data/sweden.gtfs.zip failed. Check your API key."
     echo "You probably want to fix the key and run this again."
     exit 13
