@@ -6,7 +6,7 @@ async function load_isochrone(lat_lon) {
   let time = 3600*hours;
   p = `${lat_lon.lat},${lat_lon.lng}`
   console.log(p);
-  let url = new URL("http://localhost:8081/isochrone");
+  let url = new URL("http://localhost:8989/isochrone");
   //url.searchParams.set('point', '59.34749407695611,18.08845175590946');
   url.searchParams.set('point', p);
   url.searchParams.set('profile', 'pt');

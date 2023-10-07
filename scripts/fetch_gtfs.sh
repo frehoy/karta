@@ -14,8 +14,8 @@ EOF
 fi
 
 # Download the data
-url="https://api.resrobot.se/gtfs/sweden.zip?key=${KARTA_GTFS_KEY}"
-curl -o data/sweden.gtfs.zip "$url"
+url="https://opendata.samtrafiken.se/gtfs-sweden/sweden.zip?key=${KARTA_GTFS_KEY}"
+curl --location -o data/sweden.gtfs.zip "$url"
 
 # Check we don't have an acces denied error in the response
 if grep -q "access denied" data/sweden.gtfs.zip; then

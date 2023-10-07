@@ -4,8 +4,8 @@ services:
       context: .
       dockerfile: Dockerfile.graphhopper
     ports:
-      - "8081:8081"
-      - "8082:8082"
+      - "8989:8989"
+      - "8990:8990"
   tiles:
     image: overv/openstreetmap-tile-server
     volumes:
