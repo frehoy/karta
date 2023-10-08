@@ -1,0 +1,26 @@
+graphhopper:
+  import.osm.ignored_highways:
+  datareader.file: data/sweden-latest.osm.pbf
+  gtfs.file: data/sweden.gtfs.zip
+  graph.location: graphs/sweden
+
+  profiles:
+    - name: foot
+      vehicle: foot
+      weighting: fastest
+    - name: bike
+      vehicle: bike
+      weighting: fastest
+    - name: car
+      vehicle: car
+      weighting: fastest
+
+server:
+  application_connectors:
+    - type: http
+      port: 8081
+      bind_host: 0.0.0.0
+  admin_connectors:
+    - type: http
+      port: 8082
+      bind_host: 0.0.0.0

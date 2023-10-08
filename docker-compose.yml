@@ -1,6 +1,13 @@
 services:
+  routy:
+    build:
+      context: .
+      dockerfile: Dockerfile.graphhopper
+    ports:
+      - "8081:8081"
+      - "8082:8082"
   tiles:
-    image: overv/openstreetmap-tile-server
+    image: overv/openstreetmap-tile-server:2.3.0
     volumes:
       - ./data/sweden-latest.osm.pbf:/data/region.osm.pbf
       - ./data/sweden.poly:/data/region.poly
