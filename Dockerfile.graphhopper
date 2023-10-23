@@ -1,4 +1,4 @@
-FROM openjdk:19 AS builder
+FROM amazoncorretto:21 AS builder
 
 # Fetch the graphhopper jar
 WORKDIR /routy
