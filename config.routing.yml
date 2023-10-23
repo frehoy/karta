@@ -33,12 +33,10 @@ graphhopper:
   profiles:
     - name: foot
       vehicle: foot
-      weighting: fastest
+      custom_model_files: []
     - name: car
       vehicle: car
-      weighting: custom
-      custom_model:
-        distance_influence: 70
+      custom_model_files: []
 #      turn_costs: true
 #      u_turn_costs: 60
 
@@ -50,7 +48,7 @@ graphhopper:
 #      custom_model_file: bike.json
 
   # specify the folder where to find the custom model files
-  custom_models.directory: custom_models
+#  custom_models.directory: custom_models
 
   # Speed mode:
   # Its possible to speed up routing by doing a special graph preparation (Contraction Hierarchies, CH). This requires
