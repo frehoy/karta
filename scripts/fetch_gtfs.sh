@@ -15,7 +15,7 @@ fi
 
 # Download the data
 url="https://opendata.samtrafiken.se/gtfs-sweden/sweden.zip?key=${KARTA_GTFS_KEY}"
-curl --location -o data/sweden.gtfs.zip "$url"
+curl --location --output data/sweden.gtfs.zip --header "Accept-Encoding: gzip" "$url"
 
 # Check we don't have an acces denied error in the response
 if grep -q "access denied" data/sweden.gtfs.zip; then
