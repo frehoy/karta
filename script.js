@@ -27,7 +27,7 @@ async function add_iso_to_map(lat_lon) {
 
 // add the OpenStreetMap tiles
 L.tileLayer(
-  'http://127.0.0.1:8080/tile/{z}/{x}/{y}.png',
+  'http://localhost:8080/tile/{z}/{x}/{y}.png',
   {
     attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
   }
