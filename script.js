@@ -1,9 +1,9 @@
 // initialize Leaflet
-var map = L.map('map').setView({lon: 12.0, lat: 55.0}, 2);
+var map = L.map('map').setView({ lon: 12.0, lat: 55.0 }, 2);
 
 async function load_isochrone(lat_lon) {
   let hours = 1;
-  let time = 3600*hours;
+  let time = 3600 * hours;
   p = `${lat_lon.lat},${lat_lon.lng}`
   console.log(p);
   let url = new URL("http://localhost:8989/isochrone");
@@ -34,11 +34,11 @@ L.tileLayer(
 ).addTo(map);
 
 // show the scale bar on the lower left corner
-L.control.scale({imperial: false, metric: true}).addTo(map);
+L.control.scale({ imperial: false, metric: true }).addTo(map);
 
 // show a marker on the map
 L.marker(
-  {lon: 17.638936, lat: 59.858550}
+  { lon: 17.638936, lat: 59.858550 }
 ).bindPopup('The center of the world').addTo(map);
 
 //add_iso_to_map();
@@ -46,11 +46,11 @@ L.marker(
 var popup = L.popup();
 
 function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(map);
-    add_iso_to_map(e.latlng)
+  popup
+    .setLatLng(e.latlng)
+    .setContent("You clicked the map at " + e.latlng.toString())
+    .openOn(map);
+  add_iso_to_map(e.latlng)
 }
 
 map.on('click', onMapClick);
