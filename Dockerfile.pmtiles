@@ -1,0 +1,12 @@
+FROM node:21.0.0-alpine3.18
+
+WORKDIR /data/pmtiles
+
+# Add our tiles
+COPY data/listings.pmtiles ./
+
+# Install http-server
+RUN npm install -g http-server
+
+EXPOSE 8181
+CMD ["http-server", "-p", "8181", ".", "--cors"]

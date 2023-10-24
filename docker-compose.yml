@@ -1,6 +1,6 @@
 services:
   routy:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile.graphhopper
     ports:
@@ -16,6 +16,12 @@ services:
     ports:
       - "8080:80"
     command: "run"
+  pmtiles:
+    build:
+      context: .
+      dockerfile: Dockerfile.pmtiles
+    ports:
+      - "8181:8181"
 
 volumes:
   tiles-db:

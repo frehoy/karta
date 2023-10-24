@@ -5,7 +5,7 @@ const load_isochrone = async (lat_lon, hours) => {
   const seconds = 3600 * hours;
   const p = `${lat_lon.lat},${lat_lon.lng}`;
 
-  const profile = "car";
+  const profile = "pt";
 
   const url = new URL("http://localhost:8989/isochrone");
   url.searchParams.set('point', p);
@@ -36,16 +36,17 @@ const add_iso_to_map = async (lat_lon) => {
     { time: 1.0, color: "#ff0000", opacity: 0.1 },
   ];
 
-  for (const isochrone of isochrones) {
-    console.log(isochrone);
+  const promises = isochrones.map(async (isochrone) => {
     const json = await load_isochrone(lat_lon, isochrone.time);
     const style = {
       color: isochrone.color,
       weight: 0,
-      opacity: 0.1,
+      opacity: isochrone.opacity,
     };
     L.geoJson(json, { style }).addTo(map);
-  }
+  });
+
+  await Promise.all(promises);
 };
 
 // add the OpenStreetMap tiles
@@ -75,3 +76,7 @@ const onMapClick = (e) => {
 };
 
 map.on('click', onMapClick);
+
+
+let layer = protomapsL.leafletLayer({ url: 'http://localhost:8181/listings/{z}/{x}/{y}.mvt' })
+layer.addTo(map)
